@@ -9,13 +9,13 @@ services:
     links:
       - php-fpm
     volumes:
-      - ./app:/var/www/laravel
+      - ./:/var/www/laravel
       - ./docker/nginx/error_log:/var/log/nginx
   php-fpm:
     build:
       context: ./docker/php
     volumes:
-      - ./app:/var/www/laravel
+      - ./:/var/www/laravel
     links:
       - mysql
   mysql:
