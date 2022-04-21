@@ -23,5 +23,3 @@ jobs:
 
       - name: Deploy with rsync
         run: rsync -avz . ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/www
-      
-      -name: build
