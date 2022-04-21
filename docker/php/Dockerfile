@@ -1,6 +1,6 @@
 FROM php:7.4-fpm-alpine
 
-#RUN apt-get update \ && docker-php-ext-install mysqli
+RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 RUN curl -sS https://getcomposer.org/installer | php -- \
 --install-dir=/usr/bin --filename=composer && chmod +x /usr/bin/composer

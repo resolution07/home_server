@@ -18,11 +18,19 @@ services:
       - ./:/var/www/laravel
     links:
       - mysql
+    container_name: php
   mysql:
     build:
       context: ./docker/mysql
+    restart: unless-stopped
+    container_name: db
     ports:
       - 3306:3306
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=laravel
+        MYSQL_DATABASE: ${DB_DATABASE}
+        MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+        #MYSQL_PASSWORD: ${DB_PASSWORD}
+        #MYSQL_USER: ${DB_USERNAME}
+    volumes:
+        - ./docker/mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+        - ./docker/mysql/data:/var/lib/mysql
