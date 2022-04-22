@@ -11,14 +11,9 @@ jobs:
     steps:
       - name: Prepare key
       - uses: actions/checkout@v2
-
       - run: set -eu
-
       - run: mkdir "$HOME/.ssh"
-
       - run: echo "${{ secrets.ORANGE_PI_PC }}" > "$HOME/.ssh/key"
-
       - run: chmod 600 "$HOME/.ssh/key"
 
-      - name: Deploy_to_server
       - run: rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/vladamir/www
