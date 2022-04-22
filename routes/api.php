@@ -21,6 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/user', function(){ 
     return response()->json(
-        User::query()->with('roles')->find(1)
+        //User::query()->with('roles')->find(1)
     ); 
 });
