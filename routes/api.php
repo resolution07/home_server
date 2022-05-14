@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Sensors\DHTController;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -20,6 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/', function (){
-    return 'Hello';
-});
+Route::post('/dht/attach', [DHTController::class, 'add']);

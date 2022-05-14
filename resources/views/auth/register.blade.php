@@ -1,29 +1,33 @@
-@extends('layouts.template.app')
-
-@section('title', 'Регистрация')
-@section('header')
-    @include('layouts.template.header')
-@endsection
-@section('main')
-    <section id="contact" class="four">
-        <div class="container">
-            <header>
-                <h2>Регистрация</h2>
-            </header>
-
-            <form action="{{ route('auth.register.save') }}" method="POST">
-                @csrf
-                <div class="row">
-                    <div class="col-6 col-12-mobile"><input type="email" name="user[email]" placeholder="Email" /></div>
-                    <div class="col-6 col-12-mobile"><input type="password" name="user[password]" placeholder="Password" /></div>
-                    <div class="col-6 col-12-mobile"><input type="password" name="user[confirm_password]" placeholder="Confirm password"/></div><br>
-
-                    <div class="col-12">
-                        <input type="submit" value="Register" />
-                    </div>
-                </div>
-            </form>
-
-        </div>
-    </section>
+@extends('layouts.app')
+@section('title', 'Register')
+@section('content')
+    <div class="auth-form">
+        <h2>Registration</h2>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+        <form action="" method="post">
+            @csrf
+            <div class="field">
+                <label for="">Name</label>
+                <input type="text" name="name">
+            </div>
+            <div class="field">
+                <label for="">E-mail</label>
+                <input type="email" name="email">
+            </div>
+            <div class="field">
+                <label for="">Password</label>
+                <input type="password" name="password">
+            </div>
+            <div class="field">
+                <label for="">Confirm password</label>
+                <input type="password" name="password_confirmation">
+            </div>
+            <br>
+            <div class="field">
+                <input type="submit" value="Register">
+            </div>
+        </form>
+    </div>
 @endsection

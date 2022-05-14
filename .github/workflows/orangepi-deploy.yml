@@ -10,11 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      # Setup key
       - run: set -eu
       - run: mkdir "$HOME/.ssh"
       - run: echo "${{ secrets.ORANGE_PI_PC }}" > "$HOME/.ssh/key"
       - run: chmod 600 "$HOME/.ssh/key"
-      # Deploy
-      - run: ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} cd /home/vladamir/www/mukashev.hopto.org && git pull origin master
+      - run: ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} cd /home/vladamir/www/mukashev.hopto.org && git pull origin master && php artisan migrate
 
