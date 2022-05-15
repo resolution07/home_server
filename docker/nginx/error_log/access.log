@@ -647,3 +647,5 @@
 172.18.0.1 - - [14/May/2022:10:34:17 +0000] "POST /api/dht/attach?humidity=40.2&temperature=23.2&heat_index=22.1 HTTP/1.1" 500 12572 "-" "PostmanRuntime/7.29.0" "-"
 172.18.0.1 - - [14/May/2022:10:35:32 +0000] "POST /api/dht/attach?humidity=40.2&temperature=23.2&heat_index=22.1 HTTP/1.1" 500 12572 "-" "PostmanRuntime/7.29.0" "-"
 172.18.0.1 - - [14/May/2022:10:35:42 +0000] "POST /api/dht/attach?humidity=40.2&temperature=23.2&heat_index=22.1 HTTP/1.1" 200 164 "-" "PostmanRuntime/7.29.0" "-"
+172.18.0.1 - - [15/May/2022:20:39:23 +0000] "GET / HTTP/1.1" 200 1722 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36" "-"
+172.18.0.1 - - [15/May/2022:20:39:23 +0000] "GET /favicon.ico HTTP/1.1" 200 0 "http://localhost/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36" "-"

@@ -28,6 +28,11 @@ class DHTActions
      */
     public function read(DHTReadRequest $request): LengthAwarePaginator
     {
-        return DHT::query()->paginate(perPage: $request->getLimit(), page: $request->getPage());
+        return DHT::query()->paginate(
+            $request->getLimit(),
+            $columns = ['*'],
+            $pageName = 'page',
+            $request->getPage()
+        );
     }
 }
