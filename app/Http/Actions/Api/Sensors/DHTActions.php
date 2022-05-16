@@ -4,9 +4,9 @@ namespace App\Http\Actions\Api\Sensors;
 
 use App\Http\Requests\Api\Sensors\DHTCreateRequest;
 use App\Http\Requests\Api\Sensors\DHTReadRequest;
+use App\Http\Resources\Api\Sensors\DHTReadResource;
 use App\Models\Sensors\DHT;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 class DHTActions
 {
@@ -26,13 +26,13 @@ class DHTActions
      * 
      * @return [type]
      */
-    public function read(DHTReadRequest $request): LengthAwarePaginator
+    public function read(DHTReadRequest $request)
     {
-        return DHT::query()->paginate(
+        return DHTReadResource::collection(DHT::query()->paginate(
             $request->getLimit(),
             $columns = ['*'],
             $pageName = 'page',
             $request->getPage()
-        );
+        ));
     }
 }
