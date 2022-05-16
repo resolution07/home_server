@@ -18,8 +18,10 @@ class DHTReadResource extends JsonResource
             'humidity' => $this->humidity,
             'temperature' => $this->heat_index,
             'heat_index' => $this->heat_index,
-            'created_at' => $this->created_at->format('d.m.Y H:i:s'),
-            'updated_at' => $this->updated_at->format('d.m.Y H:i:s')
+            'created_at' => $this->created_at,
+            //'created_at' => $this->created_at->format('d.m.Y H:i:s'),
+            'updated_at' => $this->updated_at
+            //'updated_at' => $this->updated_at->format('d.m.Y H:i:s')
         ];
     }
 }
