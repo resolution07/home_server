@@ -16,7 +16,7 @@ class DHTReadResource extends JsonResource
     {
         return [
             'humidity' => $this->humidity,
-            'temperature' => $this->heat_index,
+            'temperature' => $this->temperature,
             'heat_index' => $this->heat_index,
             'created_at' => $this->created_at,
             //'created_at' => $this->created_at->format('d.m.Y H:i:s'),

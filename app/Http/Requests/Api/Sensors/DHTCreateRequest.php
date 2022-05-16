@@ -26,7 +26,7 @@ class DHTCreateRequest extends FormRequest
         return [
             'humidity' => 'required|numeric|between:0,99.99',
             'temperature' => 'required|numeric|between:0,99.99',
-            'heat_index' => 'numeric|between:0,99.99'
+            'heat_index' => 'sometimes|numeric|between:0,99.99'
         ];
     }
 }
