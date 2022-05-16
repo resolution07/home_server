@@ -14,12 +14,11 @@ class DHTController extends Controller
      * @param DHTCreateRequest $request
      * @param DHTActions $dHTActions
      * 
-     * @return JsonResponse
      */
-    public function create(DHTCreateRequest $request, DHTActions $dHTActions): JsonResponse
+    public function create(DHTCreateRequest $request, DHTActions $dHTActions)
     {
         $result = $dHTActions->create($request);
-        return response()->json($result);
+        return $result;
     }
 
 
@@ -27,10 +26,9 @@ class DHTController extends Controller
      * @param DHTReadRequest $request
      * @param DHTActions $dHTActions
      * 
-     * @return JsonResponse
      */
-    public function read(DHTReadRequest $request, DHTActions $dHTActions): JsonResponse
+    public function read(DHTReadRequest $request, DHTActions $dHTActions)
     {
-        return response()->json($dHTActions->read($request));
+        return $dHTActions->read($request);
     }
 }

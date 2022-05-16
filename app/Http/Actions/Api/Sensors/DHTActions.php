@@ -4,7 +4,7 @@ namespace App\Http\Actions\Api\Sensors;
 
 use App\Http\Requests\Api\Sensors\DHTCreateRequest;
 use App\Http\Requests\Api\Sensors\DHTReadRequest;
-use App\Http\Resources\Api\Sensors\DHTReadResource;
+use App\Http\Resources\Api\Sensors\DHTReadCollection;
 use App\Models\Sensors\DHT;
 use Illuminate\Database\Eloquent\Model;
 
@@ -28,11 +28,13 @@ class DHTActions
      */
     public function read(DHTReadRequest $request)
     {
-        return DHTReadResource::collection(DHT::query()->paginate(
-            $request->getLimit(),
-            $columns = ['*'],
-            $pageName = 'page',
-            $request->getPage()
-        ));
+        return new DHTReadCollection(
+            DHT::query()->paginate(
+                $request->getLimit(),
+                $columns = ['*'],
+                $pageName = 'page',
+                $request->getPage()
+            )
+        );
     }
 }
