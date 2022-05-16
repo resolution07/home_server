@@ -13,9 +13,8 @@ class DHTActions
     /**
      * @param DHTCreateRequest $request
      * 
-     * @return [type]
      */
-    public function create(DHTCreateRequest $request): Model
+    public function create(DHTCreateRequest $request)
     {
         $result = DHT::query()->create($request->validated());
         return $result;
@@ -24,12 +23,13 @@ class DHTActions
     /**
      * @param DHTReadRequest $request
      * 
-     * @return [type]
      */
     public function read(DHTReadRequest $request)
     {
         return new DHTReadCollection(
-            DHT::query()->paginate(
+            DHT::query()
+            ->orderByDesc('id')
+            ->paginate(
                 $request->getLimit(),
                 $columns = ['*'],
                 $pageName = 'page',
