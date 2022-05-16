@@ -18,7 +18,7 @@
 
         let dht = []
 
-        fetch('http://mukashev.hopto.org/api/dht?limit=734')
+        fetch('http://mukashev.hopto.org/api/dht?limit=480')
             .then((response) => {
                 return response.json();
             })
