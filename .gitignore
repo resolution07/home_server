@@ -4,6 +4,8 @@
 /storage/*.key
 /vendor
 /docker/mysql/data
+/docker/nginx/error_log
+*.log
 .env
 !.env.example
 .phpunit.result.cache

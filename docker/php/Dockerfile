@@ -7,4 +7,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
 
 COPY ./config/opcache.ini /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini
 
+RUN chown -R www-data:www-data /var/www/laravel
+
 WORKDIR /var/www/laravel
