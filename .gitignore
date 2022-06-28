@@ -3,8 +3,7 @@
 /public/storage
 /storage/*.key
 /vendor
-/docker
-/docker-compose.yml
+/docker/mysql/data
 .env
 !.env.example
 .phpunit.result.cache
